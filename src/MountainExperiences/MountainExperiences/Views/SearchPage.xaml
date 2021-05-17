@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MountainExperiences.Views.SearchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:MountainExperiences.ViewModels"
+    x:DataType="viewmodels:SearchPageViewModel"
+    NavigationPage.HasNavigationBar="False">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label
+            HorizontalOptions="Center"
+            Text="Search Page"
+            VerticalOptions="Center" />
+        <Button Command="{Binding GoBackCommand}" Text="Go back command" />
+    </StackLayout>
+
+</ContentPage>
