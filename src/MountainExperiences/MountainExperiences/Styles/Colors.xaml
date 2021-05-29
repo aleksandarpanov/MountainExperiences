@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="MountainExperiences.Styles.Colors"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="PrimaryColor">#1C1C1C</Color>
+    <Color x:Key="SecondaryColor">#FFFFFF</Color>
+    <Color x:Key="MountainTagBackgroundColor">#8D8D8D</Color>
+    <Color x:Key="OnlineContactColor">#39D328</Color>
+</ResourceDictionary>

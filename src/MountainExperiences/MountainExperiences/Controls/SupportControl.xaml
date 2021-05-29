@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MountainExperiences.Controls.SupportControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Frame CornerRadius="16" HeightRequest="60">
+        <Grid ColumnDefinitions="*, *">
+            <Label x:Name="SupportText" />
+            <Image x:Name="SupportImage" Grid.Column="1" />
+            <Path x:Name="SupportStatusColor" Grid.Column="1">
+                <Path.Data>
+                    <EllipseGeometry
+                        Center="4,56"
+                        RadiusX="4"
+                        RadiusY="4" />
+                </Path.Data>
+            </Path>
+        </Grid>
+    </Frame>
+</ContentView>
