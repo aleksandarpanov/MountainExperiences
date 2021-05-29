@@ -1,11 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MountainExperiences.Views.MainPage"
-             Title="{Binding Title}">
+<ContentPage
+    x:Class="MountainExperiences.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:MountainExperiences.Controls"
+    xmlns:viewmodels="clr-namespace:MountainExperiences.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewmodels:MainPageViewModel"
+    NavigationPage.HasNavigationBar="False">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <Grid Margin="32,40,32,32" RowDefinitions="auto, *, auto, auto">
+        <Grid ColumnDefinitions="*,*">
+            <Image
+                Aspect="AspectFit"
+                HeightRequest="32"
+                HorizontalOptions="Start"
+                Source="bars.png"
+                VerticalOptions="Center"
+                WidthRequest="32" />
+            <Frame
+                Grid.Column="1"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="24"
+                HeightRequest="48">
+                <Grid ColumnDefinitions="*, *">
+                    <Label
+                        x:Name="SupportText"
+                        Margin="10,0,0,0"
+                        Text="Need Help?"
+                        TextColor="{StaticResource SecondaryColor}"
+                        VerticalOptions="Center" />
+                    <Image
+                        x:Name="SupportImage"
+                        Grid.Column="1"
+                        Margin="0,0,8,0"
+                        BackgroundColor="White"
+                        Source="support.png"
+                        TranslationX="20">
+                        <Image.Clip>
+                            <EllipseGeometry
+                                Center="38, 24"
+                                RadiusX="22"
+                                RadiusY="22" />
+                        </Image.Clip>
+                    </Image>
+                    <Ellipse
+                        Grid.Column="1"
+                        Margin="32,04"
+                        Fill="Black"
+                        HeightRequest="18"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        WidthRequest="18" />
+                    <Ellipse
+                        Grid.Column="1"
+                        Margin="32,04"
+                        Fill="{StaticResource OnlineContactColor}"
+                        HeightRequest="12"
+                        HorizontalOptions="Start"
+                        VerticalOptions="End"
+                        WidthRequest="12" />
+                </Grid>
+            </Frame>
+        </Grid>
+    </Grid>
 
 </ContentPage>
