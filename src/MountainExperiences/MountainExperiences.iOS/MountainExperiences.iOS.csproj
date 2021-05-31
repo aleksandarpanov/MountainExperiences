@@ -310,5 +310,23 @@
   <ItemGroup>
     <BundleResource Include="Resources\support%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\anapurna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\anapurna%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\anapurna%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nepal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nepal%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\nepal%403x.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
