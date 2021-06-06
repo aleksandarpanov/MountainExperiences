@@ -1,12 +1,6 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using Prism.Navigation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Prism.Navigation;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using Xamarin.CommunityToolkit.ObjectModel;
 
 namespace MountainExperiences.ViewModels
 {
@@ -18,24 +12,43 @@ namespace MountainExperiences.ViewModels
             Title = "Main Page";
         }
 
-        private ICommand goToSearchPageCommand;
+        private string searchText;
 
-        public ICommand GoToSearchPageCommand
+        public string SearchText 
+        {
+            get => searchText; 
+            set
+            {
+                if (searchText != value)
+                {
+                    SetProperty(ref searchText, value);
+                }
+            }
+        }
+
+        private IAsyncCommand<string> goToSearchPageCommand;
+
+        public IAsyncCommand<string> GoToSearchPageCommand
         {
             get
             {
                 if (goToSearchPageCommand == null)
                 {
-                    goToSearchPageCommand = new DelegateCommand(async() => await GoToSearchPageAsync());
+                    goToSearchPageCommand = new AsyncCommand<string>(GoToSearchPageAsync);
                 }
 
                 return goToSearchPageCommand;
             }
         }
 
-        private async Task GoToSearchPageAsync()
+        private async Task GoToSearchPageAsync(string keyword)
         {
-            INavigationResult navigationResult = await NavigationService.NavigateAsync("SearchPage", null, useModalNavigation: false, false);
+            var navigationParams = new NavigationParameters
+            {
+                { "keyword", keyword }
+            };
+
+            INavigationResult navigationResult = await NavigationService.NavigateAsync("SearchPage", navigationParams, useModalNavigation: false, false);
 
             if (!navigationResult.Success)
             {

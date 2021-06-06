@@ -83,7 +83,10 @@
                     </Grid>
                 </Frame>
             </Grid>
-            <Grid Grid.Row="1" Margin="90,40">
+            <Grid
+                x:Name="ParentGrid"
+                Grid.Row="1"
+                Margin="90,40">
                 <Grid RowDefinitions="*, 6*, 2*">
                     <BoxView
                         BackgroundColor="{StaticResource MountainTagBackgroundColor}"
@@ -100,12 +103,15 @@
                         VerticalOptions="Center"
                         WidthRequest="6" />
                     <Line
+                        x:Name="VerticalDottedLine"
                         Grid.Row="1"
+                        HorizontalOptions="Center"
                         Stroke="Black"
                         StrokeDashArray="8,4"
                         StrokeThickness="2"
-                        X1="82"
-                        X2="82"
+                        VerticalOptions="FillAndExpand"
+                        X1="0"
+                        X2="0"
                         Y1="0"
                         Y2="190" />
                     <Grid Grid.Row="2" ColumnDefinitions="6*,4*">
@@ -159,9 +165,15 @@
                 <Frame CornerRadius="12">
                     <Grid Margin="12,0">
                         <Entry
+                            x:Name="SearchEntry"
                             Margin="30,0"
                             BackgroundColor="{StaticResource SecondaryColor}"
-                            Placeholder="Search">
+                            FontFamily="Regular"
+                            Placeholder="Search"
+                            ReturnCommand="{Binding GoToSearchPageCommand}"
+                            ReturnCommandParameter="{Binding Source={x:Reference SearchEntry}, Path=Text}"
+                            Style="{StaticResource RegularTextStyle}"
+                            TextColor="{StaticResource PrimaryColor}">
                             <Entry.Effects>
                                 <effects:RemoveEntryUnderline />
                             </Entry.Effects>
@@ -181,9 +193,11 @@
                         Grid.Column="1"
                         Margin="0,2,0,0"
                         Aspect="AspectFill"
+                        HeightRequest="24"
                         HorizontalOptions="Center"
                         Source="settings.png"
-                        VerticalOptions="Center" />
+                        VerticalOptions="Center"
+                        WidthRequest="24" />
                 </Frame>
             </Grid>
         </Grid>
